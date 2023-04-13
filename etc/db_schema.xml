@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="developerhub_product_custom_tabs" resource="default" engine="innodb" comment="Product Custom Tabs">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" comment="Title"/>
+        <column xsi:type="int" name="sort_order" nullable="false" comment="Sort Order"/>
+        <column xsi:type="boolean" name="enable_tab" nullable="false" comment="Active Tab"/>
+        <column xsi:type="longtext" name="content" nullable="false" comment="Content"/>
+        <column xsi:type="longtext" name="product_id" nullable="false" comment="Product ID"/>
+        <column xsi:type="varchar" name="attribute_set" nullable="false" comment="Attribute Set"/>
+        <column xsi:type="varchar" name="categories" nullable="false" comment="Categories"/>
+        <column xsi:type="varchar" name="allProducts" nullable="false" comment="All Products"/>
+        <column xsi:type="varchar" name="select_type" nullable="false" comment="Select Type"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="DEVELOPERHUB_PRODUCT_CUSTOM_TABS_ID" indexType="btree">
+            <column name="id"/>
+        </index>
+    </table>
+</schema>

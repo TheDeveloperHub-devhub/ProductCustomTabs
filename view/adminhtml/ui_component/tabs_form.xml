@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">tabs_form.tabs_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Tabs Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back">
+                <url path="*/*/index"/>
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+            <button name="save">
+                <url path="*/*/save"/>
+                <class>primary</class>
+                <label translate="true">Save</label>
+            </button>
+        </buttons>
+        <namespace>tabs_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>tabs_form.tabs_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="tabs_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="DeveloperHub\ProductCustomTabs\Ui\DataProvider" name="tabs_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="custom_tabs">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="is_collection" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">Tabs Details</label>
+            <collapsible>false</collapsible>
+            <opened>true</opened>
+        </settings>
+        <field formElement="checkbox" name="enable_tab" sortOrder="0">
+        <settings>
+            <dataScope>enable_tab</dataScope>
+            <label translate="true">Active Tab</label>
+        </settings>
+        <formElements>
+            <checkbox>
+                <settings>
+                    <valueMap>
+                        <map name="false" xsi:type="string">0</map>
+                        <map name="true" xsi:type="string">1</map>
+                    </valueMap>
+                    <prefer>toggle</prefer>
+                </settings>
+            </checkbox>
+        </formElements>
+    </field>
+        <field name="title" sortOrder="20" formElement="input" >
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Title</label>
+                <dataScope>title</dataScope>
+                <validation>
+                    <rule name="max_text_length" xsi:type="string">20</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="sort_order" sortOrder="30" formElement="input">
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Sort Order</label>
+                <dataScope>sort_order</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="select_type" sortOrder="40" formElement="select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Select Type</label>
+                <dataScope>select_type</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <switcherConfig>
+                    <rules>
+                        <rule name="0">
+                            <value>0</value>
+                            <actions>
+                                <action name="0">
+                                    <target>tabs_form.tabs_form.custom_tabs.product_id</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="1">
+                                    <target>tabs_form.tabs_form.custom_tabs.attribute_set</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="2">
+                                    <target>tabs_form.tabs_form.custom_tabs.categories</target>
+                                    <callback>hide</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                        <rule name="1">
+                            <value>1</value>
+                            <actions>
+                                <action name="0">
+                                    <target>tabs_form.tabs_form.custom_tabs.product_id</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="1">
+                                    <target>tabs_form.tabs_form.custom_tabs.attribute_set</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="2">
+                                    <target>tabs_form.tabs_form.custom_tabs.categories</target>
+                                    <callback>hide</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                        <rule name="2">
+                            <value>2</value>
+                            <actions>
+                                <action name="0">
+                                    <target>tabs_form.tabs_form.custom_tabs.product_id</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="1">
+                                    <target>tabs_form.tabs_form.custom_tabs.attribute_set</target>
+                                    <callback>show</callback>
+                                </action>
+                                <action name="2">
+                                    <target>tabs_form.tabs_form.custom_tabs.categories</target>
+                                    <callback>hide</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                        <rule name="3">
+                            <value>3</value>
+                            <actions>
+                                <action name="0">
+                                    <target>tabs_form.tabs_form.custom_tabs.product_id</target>
+                                    <callback>show</callback>
+                                </action>
+                                <action name="1">
+                                    <target>tabs_form.tabs_form.custom_tabs.attribute_set</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="2">
+                                    <target>tabs_form.tabs_form.custom_tabs.categories</target>
+                                    <callback>hide</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                        <rule name="4">
+                            <value>4</value>
+                            <actions>
+                                <action name="0">
+                                    <target>tabs_form.tabs_form.custom_tabs.product_id</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="1">
+                                    <target>tabs_form.tabs_form.custom_tabs.attribute_set</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="2">
+                                    <target>tabs_form.tabs_form.custom_tabs.categories</target>
+                                    <callback>show</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                    </rules>
+                    <enabled>true</enabled>
+                </switcherConfig>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="DeveloperHub\ProductCustomTabs\Ui\OptionsProvider"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="product_id" sortOrder="50" formElement="textarea">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Product Id</label>
+                <dataScope>product_id</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="string">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="attribute_set" sortOrder="50" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">attribute_set</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Attribute Set</label>
+                <dataScope>attribute_set</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="string">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="DeveloperHub\ProductCustomTabs\Ui\AttributeSetProvider"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+        <field name="categories" sortOrder="50" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">categories</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Categories</label>
+                <dataScope>categories</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="string">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="DeveloperHub\ProductCustomTabs\Ui\CategoriesListProvider"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+        <field name="content" sortOrder="60" formElement="wysiwyg" template="ui/form/field">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="is_pagebuilder_enabled" xsi:type="boolean">false</item>
+                        <item name="toggle_button" xsi:type="boolean">true</item>
+                        <item name="height" xsi:type="string">500px</item>
+                        <item name="add_variables" xsi:type="boolean">true</item>
+                        <item name="add_widgets" xsi:type="boolean">true</item>
+                        <item name="add_images" xsi:type="boolean">true</item>
+                        <item name="add_directives" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <label translate="true">Contents</label>
+                <dataScope>content</dataScope>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <rows>5</rows>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

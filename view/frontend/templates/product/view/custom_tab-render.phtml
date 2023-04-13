@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @var DeveloperHub\ProductCustomTabs\Block\Product\View\Details $block
+ */
+
+$helper = $this->helper("DeveloperHub\ProductCustomTabs\Helper\ProcessData");
+?>
+<div>
+    <?php echo __($helper->manipulateContentData($block->getData('content')))?>
+</div>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="DeveloperHub_ProductCustomTabs::product_tab"
+             title="Product Tabs"
+             module="DeveloperHub_ProductCustomTabs" sortOrder="10"
+             resource="DeveloperHub_ProductCustomTabs::product_tab"
+             parent="DeveloperHub_Core::developerhub"/>
+        <add id="DeveloperHub_ProductCustomTabs::add_tab_to_product"
+             title="Product Custom Tabs"
+             module="DeveloperHub_ProductCustomTabs" sortOrder="20"
+             resource="DeveloperHub_ProductCustomTabs::add_tab_to_product"
+             parent="DeveloperHub_ProductCustomTabs::product_tab"
+             action="customtabs/index/index"/>
+        <add id="DeveloperHub_ProductCustomTabs::custom_tabs_configuration"
+             title="Custom Tabs Configuration"
+             module="DeveloperHub_ProductCustomTabs" sortOrder="20"
+             resource="DeveloperHub_ProductCustomTabs::custom_tabs_configuration"
+             parent="DeveloperHub_ProductCustomTabs::add_tab_to_product"
+             action="admin/system_config/edit/section/addCustomAttributeToProduct"/>
+    </menu>
+</config>

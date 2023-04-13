@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <referenceContainer name="content">
+        <block class="Magento\Catalog\Block\Product\View\Details" name="product.info.details"
+               template="Magento_Catalog::product/view/details.phtml" before="product.attributes.pagebuilder.wrapper">
+            <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes.test" as="additional"
+                   template="Magento_Catalog::product/view/attributes.phtml" group="detailed_info"/>
+        </block>
+    </referenceContainer>
+    <move element="product.info.details" destination="product.info.description.wrapper"/>
+</layout>

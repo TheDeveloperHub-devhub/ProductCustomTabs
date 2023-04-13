@@ -1,0 +1,22 @@
+{
+    "developerhub_product_custom_tabs": {
+        "column": {
+            "id": true,
+            "title": true,
+            "sort_order": true,
+            "enable_tab": true,
+            "content": true,
+            "product_id": true,
+            "attribute_set": true,
+            "categories": true,
+            "allProducts": true,
+            "select_type": true
+        },
+        "index": {
+            "DEVELOPERHUB_PRODUCT_CUSTOM_TABS_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
