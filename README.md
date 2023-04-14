@@ -13,7 +13,7 @@ The Product Custom Tabs extension for Magento 2 allows store admin to create Cus
 Install the module as a composer requirement for environments:
 
 ```
-    composer require developerhub/product-custom-tabs
+    composer require devhub/product-custom-tabs
     php bin/magento module:enable DeveloperHub_Core DeveloperHub_ProductCustomTabs
     php bin/magento setup:upgrade
     php bin/magento setup:di:compile
