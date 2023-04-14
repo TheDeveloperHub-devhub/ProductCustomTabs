@@ -1,9 +1,9 @@
 {
-    "name": "developerhub/product-custom-tabs",
+    "name": "devhub/product-custom-tabs",
     "description": "Add Custom Tabs to products",
     "require": {
         "php": ">=7.3",
-        "developerhub/core": "1.0.*",
+        "devhub/core": "1.0.*",
         "magento/module-backend": "^101.0 | ^102.0",
         "magento/module-ui": "^101.0",
         "magento/module-store": "^101",
